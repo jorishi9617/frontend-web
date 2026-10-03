@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/auth",
+      "destination": "https://video-platform-auth.onrender.com/api/auth"
+    },
+    {
+      "source": "/api/auth/:path*",
+      "destination": "https://video-platform-auth.onrender.com/api/auth/:path*"
+    },
+    {
+      "source": "/api/calls",
+      "destination": "https://video-platform-call.onrender.com/api/calls"
+    },
+    {
+      "source": "/api/calls/:path*",
+      "destination": "https://video-platform-call.onrender.com/api/calls/:path*"
+    }
+  ]
+}

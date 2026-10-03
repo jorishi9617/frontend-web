@@ -7,7 +7,9 @@ const nextConfig: NextConfig = {
     const callApi = process.env.CALL_API_INTERNAL_URL ?? "http://localhost:8082";
 
     return [
+      { source: "/api/auth", destination: `${authApi}/api/auth` },
       { source: "/api/auth/:path*", destination: `${authApi}/api/auth/:path*` },
+      { source: "/api/calls", destination: `${callApi}/api/calls` },
       { source: "/api/calls/:path*", destination: `${callApi}/api/calls/:path*` },
     ];
   },
