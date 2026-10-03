@@ -2,6 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  env: {
+    auth_api_url: process.env.auth_api_url ?? "https://auth-service-a3w5.onrender.com",
+    call_api_url: process.env.call_api_url ?? "https://call-service-niag.onrender.com",
+    signaling_url: process.env.signaling_url ?? "wss://video-platform-signaling.onrender.com/ws",
+  },
   async rewrites() {
     const authApi = process.env.AUTH_API_INTERNAL_URL ?? "http://localhost:8081";
     const callApi = process.env.CALL_API_INTERNAL_URL ?? "http://localhost:8082";
