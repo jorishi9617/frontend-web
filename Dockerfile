@@ -1,11 +1,11 @@
 FROM node:22-alpine AS build
 WORKDIR /app
-COPY frontend-web/package.json frontend-web/package-lock.json* ./
+COPY package.json package-lock.json* ./
 RUN npm ci
-COPY frontend-web/ .
-ARG NEXT_PUBLIC_SIGNALING_URL=wss://localhost:8083/ws
-ARG AUTH_API_INTERNAL_URL=http://localhost:8081
-ARG CALL_API_INTERNAL_URL=http://localhost:8082
+COPY . .
+ARG NEXT_PUBLIC_SIGNALING_URL=wss://jorishi9617-video-platform-signaling.onrender.com/ws
+ARG AUTH_API_INTERNAL_URL=https://jorishi9617-video-platform-auth.onrender.com
+ARG CALL_API_INTERNAL_URL=https://jorishi9617-video-platform-call.onrender.com
 ENV NEXT_PUBLIC_SIGNALING_URL=$NEXT_PUBLIC_SIGNALING_URL \
     AUTH_API_INTERNAL_URL=$AUTH_API_INTERNAL_URL \
     CALL_API_INTERNAL_URL=$CALL_API_INTERNAL_URL
